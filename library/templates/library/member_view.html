@@ -1,0 +1,27 @@
+{% extends "library/base.html" %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "library/member.css" %}">
+{% endblock  %}
+
+{% block content %}
+    <h2>Login Successful!</h2>
+    <p>Welcome, {{ fname }}.</p>
+    <a href="{% url "logout" %}"><button>Logout</button></a>
+    
+    <div class="book-grid">
+        {% for book in books %}
+            <div class="book-item">
+                    <a href="{% url "read" book.slug %}">
+                    <img src="{{ book.cover_image.url }}" alt="{{ book.book_name }}" class="book-cover">
+                    <p class="book-title">{{ book.book_name }}</p>
+                    <p class="book-author">{{ book.author_name }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

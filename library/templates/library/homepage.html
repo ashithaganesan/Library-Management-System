@@ -1,0 +1,110 @@
+{% extends "library/base.html" %}
+{% load static %}
+
+{% block title %}
+    HomePage
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'library/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="button-container">
+            <a href="{% url "login" %}"><button class="button">Login</button></a>
+        </div>
+
+        <section>
+            <h2>About Us!</h2>
+            <div class="section-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure culpa asperiores, rem rerum fugiat quas ea, laudantium harum perferendis nam hic minus numquam architecto, praesentium reprehenderit. Non quia labore, iusto assumenda a nulla laboriosam, sequi velit modi laudantium cumque ex.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Booklist</h2>
+            <div class="book-grid">
+                {% for book in books %}
+                    <div class="book-item">
+                        <a href="{% url "read" book.slug %}">
+                            <img src="{{ book.cover_image.url }}" alt="{{ book.book_name }}" class="book-cover">
+                            <p class="book-title">{{ book.book_name }}</p>
+                            <p class="book-author">{{ book.author_name }}</p>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section>
+            <h2>Benefits of Becoming a member!</h2>
+            <div class="section-content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas veniam, voluptatum et laudantium animi recusandae consequatur architecto fugit corrupti sunt tenetur nam blanditiis, praesentium minima iure non fuga. Molestiae, ducimus laboriosam a explicabo possimus ratione esse aliquid at atque eligendi perspiciatis ad animi voluptates! Fugiat in ullam laboriosam eveniet magni.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Pricing Plan</h2>
+            <div class="section-content">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique ipsam, cupiditate quas nihil animi minus consectetur, autem minima deleniti accusamus et? Recusandae qui accusamus ea assumenda cupiditate dicta temporibus debitis accusantium officia! Reiciendis quisquam magnam quaerat perspiciatis iure. In laudantium enim neque aut quae tenetur beatae fugit nisi fuga dolorem?</p>
+            </div>
+        </section>
+    </div>
+{% endblock %}
+
+{% block footer_details %}
+    <div class="container">
+        <h2>Contact Us!</h2>
+        <p><a href="mailto:hege@example.com">email</a></p>
+        <p>Phone Number</p>
+    </div>
+{% endblock %}
+
+
+
+{% comment %} {% extends "library/base.html" %}
+{% load static %}
+
+{% block title %}
+    HomePage
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'library/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <p>Welcome to Ashitha's Library!</p>
+    <a href="{% url "login" %}"><button>Login</button></a>
+    <a href="{% url "signup" %}"><button>Become a Member!</button></a>
+
+    <h2>About Us!</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure culpa asperiores, rem rerum fugiat quas ea, laudantium harum perferendis nam hic minus numquam architecto, praesentium reprehenderit. Non quia labore, iusto assumenda a nulla laboriosam, sequi velit modi laudantium cumque ex.</p>
+
+    <h2>Booklist</h2>
+    <div class="book-grid">
+        {% for book in books %}
+            <div class="book-item">
+                    <a href="{% url "read" book.slug %}">
+                    <img src="{{ book.cover_image.url }}" alt="{{ book.book_name }}" class="book-cover">
+                    <p class="book-title">{{ book.book_name }}</p>
+                    <p class="book-author">{{ book.author_name }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <h2>Benefits of Becoming a member!</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas veniam, voluptatum et laudantium animi recusandae consequatur architecto fugit corrupti sunt tenetur nam blanditiis, praesentium minima iure non fuga. Molestiae, ducimus laboriosam a explicabo possimus ratione esse aliquid at atque eligendi perspiciatis ad animi voluptates! Fugiat in ullam laboriosam eveniet magni.</p>
+
+    <h2>Pricing Plan</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique ipsam, cupiditate quas nihil animi minus consectetur, autem minima deleniti accusamus et? Recusandae qui accusamus ea assumenda cupiditate dicta temporibus debitis accusantium officia! Reiciendis quisquam magnam quaerat perspiciatis iure. In laudantium enim neque aut quae tenetur beatae fugit nisi fuga dolorem?</p>
+
+{% endblock %}
+
+{% block footer_details %}
+    <h2>Contact Us!</h2>
+    <p><a href="mailto:hege@example.com">email</a></p>
+    <p>Phone Number</p>
+{% endblock %} {% endcomment %}

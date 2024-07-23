@@ -1,0 +1,19 @@
+{% extends "library/base.html" %}
+{% load static %}
+
+{% block title %}Delete{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'library/delete_book.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <p>Are you sure you want to delete this book ?</p>
+        <input type="submit" value="Yes"/>        
+        <h3><a href="{% url "admin_view" %}">Back to dashboard!</a></h3>
+    </form>
+
+{% endblock %}

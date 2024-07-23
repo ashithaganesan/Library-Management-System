@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    color: #444;
+    text-align: center;
+    margin-top: 20px;
+}
+
+h2 {
+    color: #444;
+    padding: 10px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.book-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.book-item {
+    width: 200px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    padding: 10px;
+}
+
+.book-item:hover {
+    transform: scale(1.05);
+}
+
+.book-cover {
+    width: 100%;
+    height: auto;
+}
+
+.book-title {
+    margin: 10px 0 5px 0;
+    font-weight: bold;
+    color: #333;
+}
+
+.book-author {
+    margin: 0 0 10px 0;
+    font-style: italic;
+    color: #666;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #77d;
+}

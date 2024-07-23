@@ -1,0 +1,28 @@
+{% extends "library/base.html" %}
+{% load static %}
+
+{% block title %}Admin{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'library/admin.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>Admin Dashboard</h1>
+    <a href="{% url "logout" %}"><button>Logout</button></a>
+    <a href="{% url "signup" %}"><button class="button">Add a Member!</button></a>
+    <a href="{% url "create" %}"><button class="button">Add a Book!</button></a>
+
+    <h2>Table of contents:</h2>
+    <div class="book-grid">
+        {% for book in books %}
+            <div class="book-item">
+                    <img src="{{ book.cover_image.url }}" alt="{{ book.book_name }}" class="book-cover">
+                    <p class="book-title">{{ book.book_name }}</p>
+                    <p class="book-author">{{ book.author_name }}</p>
+                    <a href="{% url "update" %}"><button>Edit</button></a>
+                    <a href="{% url "delete" %}"><button>Delete</button></a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "library/base.html" %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "library/login.css" %}">
+{% endblock  %}
+
+{% block content %}
+
+    <h2>Enter your Login Details:</h2>
+    <p><a href="{% url 'home' %}">Back</a></p>
+    <form action="/login/" method="POST">
+        {% csrf_token %}
+        {{ form_info }}
+        <button>Submit</button>
+    </form> 
+
+    {% if error_message %}
+        <p class='error-message'>{{ error_message }}</p>
+    {% endif %}
+
+{% endblock %}

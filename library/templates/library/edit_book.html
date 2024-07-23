@@ -1,0 +1,28 @@
+{% extends "library/base.html" %}
+{% load static %}
+
+{% block title %}Edit{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'library/edit_book.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="form-container">
+        <h2 class="form-heading">Edit Book Information</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {% for field in form %}
+                <div class="form-control {% if field.errors %}errors{% endif %}">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {{ field.errors }}
+                </div>
+            {% endfor %}
+
+            <button type="submit">Save Changes!</button>
+        </form>
+    </div>
+    <h3><a href="{% url "admin_view" %}">Back to dashboard!</a></h3>
+{% endblock %}

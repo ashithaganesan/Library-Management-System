@@ -1,0 +1,29 @@
+{% extends "library/base.html" %}
+{% load static %}
+
+{% block title %}Add Book{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'library/create.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="form-container">
+        <h2 class="form-heading">Enter the following details:</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            {% for field in form %}
+                <div class="form-control {% if field.errors %}errors{% endif %}">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {{ field.errors }}
+                </div>
+            {% endfor %}
+
+            <button type="Save">Save</button>
+        </form>
+        
+        <h3><a href="{% url "admin_view" %}">Back to dashboard!</a></h3>
+    </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "library/base.html" %}
+{% load static %}
+
+{% block title %}View Book{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'library/single_book.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="book-container">
+        <img src="{{ book.cover_image.url }}" alt="{{ book.book_name }}" class="book-cover">
+        <div class="book-details">
+            <h1>{{ book.book_name }}</h1>
+            <p>Author: {{ book.author_name }}</p>
+            <p>Email: {{ book.author_email }}</p>
+            <p>Genre: {{ book.genre }}</p>
+            <p>Rating: {{ book.rating }}</p>
+            <p>Cost: ${{ book.cost }}</p>
+            {% if book.status %}
+                <p class="available">Available</p>
+            {% else %}
+                <p class="not-available">Not Available</p>
+            {% endif %}
+        </div>
+  
+        <div class="button-container">
+            <a href="{% url 'login' %}"><button>Purchase!</button></a>
+        </div>
+    
+    </div>
+
+    <div class="book-summary">
+        <h3>Summary</h3>
+        <p>{{ book.summary }}</p>
+    </div>
+
+    <div class="back-home">
+        <h3><a href="{% url 'home' %}">Back to Home!</a></h3>
+    </div>
+{% endblock %}
